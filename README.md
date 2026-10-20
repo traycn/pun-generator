@@ -1,5 +1,7 @@
 # Pun Generator
 
+[![CI](https://github.com/traycn/pun-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/traycn/pun-generator/actions/workflows/ci.yml)
+
 The project that started it all, revived.
 
 ## From 2012 to now
