@@ -47,21 +47,34 @@
       if (document.getElementById("pun-egg-style")) return;
       const style = document.createElement("style");
       style.id = "pun-egg-style";
+      // Matches the site theme: Source Sans Pro, black on white, cyan accent, pill buttons.
+      // The theme styles every bare `button` (including `color: ... !important`), so the popup
+      // resets its buttons with `all: initial` under #pun-egg and sets color with !important.
       style.textContent = `
         #pun-egg-backdrop { position: fixed; inset: 0; z-index: 99999; display: grid;
           place-items: center; padding: 1rem; background: rgba(0,0,0,.45); }
-        #pun-egg { --pun-bg: #fff; --pun-fg: #3d4449; --pun-accent: #f56a6a;
-          position: relative; max-width: 24rem; padding: 1.5rem 1.5rem 1.25rem;
-          border-radius: 8px; background: var(--pun-bg); color: var(--pun-fg);
-          box-shadow: 0 6px 24px rgba(0,0,0,.3); font: inherit; }
+        #pun-egg { --pun-bg: #ffffff; --pun-fg: #000000; --pun-accent: #47D3E5; --pun-accent-hover: #1ebdd1;
+          position: relative; box-sizing: border-box; max-width: 24rem; padding: 2rem 2rem 1.75rem;
+          border-radius: 0.35rem; background: var(--pun-bg); color: var(--pun-fg);
+          box-shadow: 0 0.5rem 2rem rgba(0,0,0,.35);
+          font-family: "Source Sans Pro", Helvetica, sans-serif; font-weight: 300; line-height: 1.65; }
         @media (prefers-color-scheme: dark) {
-          #pun-egg { --pun-bg: #242629; --pun-fg: #e6e8ea; } }
-        #pun-egg-text { margin: 0 0 1rem; padding-right: 1.5rem; font-size: 1.15rem; line-height: 1.45; }
-        #pun-egg button { font: inherit; cursor: pointer; border-radius: 4px; }
-        #pun-egg-more { padding: .5rem 1.2rem; border: 0; color: #fff; background: var(--pun-accent); }
-        #pun-egg-close { position: absolute; top: .4rem; right: .5rem; border: 0;
-          background: none; color: inherit; font-size: 1.4rem; line-height: 1; padding: .1rem .4rem; }
-        #pun-egg button:focus-visible { outline: 3px solid var(--pun-fg); outline-offset: 2px; }`;
+          #pun-egg { --pun-bg: #1c1c1c; --pun-fg: #ffffff; box-shadow: 0 0.5rem 2rem rgba(0,0,0,.7); } }
+        #pun-egg-text { margin: 0 0 1.5rem; padding-right: 1.5rem; font-size: 1.25rem; line-height: 1.5; }
+        #pun-egg button { all: initial; box-sizing: border-box; cursor: pointer;
+          font-family: inherit; text-align: center; transition: background-color .2s ease-in-out; }
+        #pun-egg #pun-egg-more { display: inline-block; height: 3.25rem; padding: 0 2.5rem;
+          border-radius: 3.25rem; background: var(--pun-accent); color: #000000 !important;
+          font-size: .75rem; font-weight: 600; line-height: 3.25rem; letter-spacing: .125em;
+          text-transform: uppercase; white-space: nowrap; }
+        #pun-egg #pun-egg-more:hover { background: var(--pun-accent-hover); color: #000000 !important; }
+        #pun-egg #pun-egg-more:active { background: #0f9fb1; color: #000000 !important; }
+        #pun-egg #pun-egg-close { position: absolute; top: .5rem; right: .5rem; display: grid;
+          place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: transparent;
+          color: var(--pun-fg) !important; font-size: 1.5rem; line-height: 1; }
+        #pun-egg #pun-egg-close:hover { background: rgba(128,128,128,.25); color: var(--pun-fg) !important; }
+        #pun-egg #pun-egg-close:active { background: rgba(128,128,128,.4); color: var(--pun-fg) !important; }
+        #pun-egg button:focus-visible { outline: 3px solid var(--pun-fg); outline-offset: 3px; }`;
       document.head.appendChild(style);
     }
 
