@@ -4,7 +4,7 @@
 Recreate the portfolio's origin story: a small C# console app that serves puns. Then give it a tiny web front end so it can live on traycn.github.io as an easter egg. Keep it charming and small, and make it a one-evening project.
 
 ## Constraints
-- `cli/`: .NET 8 console app, no dependencies beyond the BCL. Mirrors the "first console application" from 2012.
+- `cli/`: .NET 10 console app, no dependencies beyond the BCL. Mirrors the "first console application" from 2012.
 - `web/`: one static HTML page with plain JS (no build step), so it drops straight into the GitHub Pages site. It must match the site's existing look (HTML5 UP template) and work in light and dark mode.
 - Shared data: `data/puns.json` is the single source for both.
 - All puns must be original or clearly credited. Do not scrape pun sites.

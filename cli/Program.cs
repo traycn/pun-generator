@@ -18,9 +18,7 @@ var doc = JsonSerializer.Deserialize<PunFile>(
     File.ReadAllText(dataPath),
     new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new PunFile([]);
 
-var pool = doc.Puns
-    .Where(p => topic is null || p.Topic.Equals(topic, StringComparison.OrdinalIgnoreCase))
-    .ToList();
+var pool = PunFilter.ByTopic(doc.Puns, topic);
 
 if (pool.Count == 0)
 {
@@ -45,6 +43,13 @@ static string? ArgValue(string[] args, string name)
 
 public record Pun(string Topic, string Text);
 public record PunFile(List<Pun> Puns);
+
+public static class PunFilter
+{
+    /// <summary>Puns matching the topic (case-insensitive), or all puns when topic is null.</summary>
+    public static List<Pun> ByTopic(IEnumerable<Pun> puns, string? topic) =>
+        puns.Where(p => topic is null || p.Topic.Equals(topic, StringComparison.OrdinalIgnoreCase)).ToList();
+}
 
 /// <summary>Returns every item once per cycle in random order, then reshuffles.</summary>
 public sealed class ShuffleBag<T>(IReadOnlyList<T> items, Random rng)
