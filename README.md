@@ -3,21 +3,9 @@
 The project that started it all, revived.
 
 ## From 2012 to now
-**Then:** in 2012 I built my first console application. It generated a pun to share with the pun-derful people in my life, and it led me to dive head-first into software development. (That's the whole story as my [portfolio](https://traycn.github.io/) tells it; I no longer have the original details.)
+In 2012 I built my first console application, which generated a pun to share with the pun-derful people in my life ([the story on my portfolio](https://traycn.github.io/)).
 
-**Now:** the same idea, grown up a little.
-
-| | 2012 | Now |
-|---|---|---|
-| Idea | My first console application: it generated a pun to share with people in my life | Unchanged. It still serves puns, and `dotnet run` still prints one |
-| Where it runs | A console application | The console, plus a static web page and an easter egg on my portfolio: type `pun` (or the Konami code) on https://traycn.github.io/ |
-| Generating puns | It generated a pun (how isn't recorded) | Two modes: curated puns from `data/puns.json`, and an experimental template engine (`--generated`) that fills patterns from `data/wordplay.json`, clearly labelled because templated puns are hit-or-miss |
-| Picking one | Not recorded | A shuffle bag: no repeats until every pun in the topic has been shown, with `--topic` filters and `--seed` for repeatable runs |
-| Where the puns live | Not recorded | Shared data in `data/puns.json`, used by both the CLI and the web page |
-| Tests | Not recorded | xUnit tests for the shuffle bag, topic filtering and the template generator |
-| Accessibility | Not recorded | New puns are announced through an `aria-live` region, buttons have visible focus styles, and the modal traps focus and works in light and dark mode |
-
-The "Not recorded" cells are deliberate: I'd rather leave the 2012 version's details blank than invent them.
+This version keeps the idea and adds a shuffle bag so puns don't repeat until the whole topic has been shown, topic filters, an experimental template generator, xUnit tests, shared data in `data/` for both the console app and the web page, and an accessible web easter egg on my portfolio. Try typing `pun` there.
 
 ## Run it
 ```bash
