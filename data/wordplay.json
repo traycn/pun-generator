@@ -1,7 +1,7 @@
 {
   "templates": [
     "Why did the {subject} {action}? Because it {payoff}.",
-    "What do you call a {subject} that {action}? {payoffNoun}."
+    "What do you call a {subject} that decided to {action}? {payoffNoun}."
   ],
   "entries": [
     {

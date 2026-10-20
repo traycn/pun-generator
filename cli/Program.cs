@@ -1,6 +1,6 @@
 // Pun Generator — console edition (a tribute to the 2012 original).
-// Usage: dotnet run -- [--topic code] [--count 3] [--seed 42]
-// M1 is mostly done here; M2 (--generated templates) is left for the agent.
+// Usage: dotnet run -- [--topic code] [--count 3] [--seed 42] [--generated]
+// Add --generated for experimental template puns.
 
 using System.Text.Json;
 
@@ -8,15 +8,27 @@ var topic = ArgValue(args, "--topic");
 var count = int.TryParse(ArgValue(args, "--count"), out var c) ? Math.Max(1, c) : 1;
 var seed = int.TryParse(ArgValue(args, "--seed"), out var s) ? s : (int?)null;
 
-var dataPath = Path.Combine(AppContext.BaseDirectory, "puns.json");
-if (!File.Exists(dataPath))
+var json = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+var rng = seed is null ? new Random() : new Random(seed.Value);
+
+if (args.Contains("--generated"))
 {
-    dataPath = Path.GetFullPath(Path.Combine("..", "data", "puns.json"));
+    var wordplay = JsonSerializer.Deserialize<WordplayFile>(File.ReadAllText(DataFile("wordplay.json")), json)
+        ?? new WordplayFile([], []);
+    var generator = new PunTemplates(wordplay, rng);
+    if (generator.Count == 0)
+    {
+        Console.Error.WriteLine("No usable templates. Even the generator is speechless.");
+        return 1;
+    }
+    for (var i = 0; i < count; i++)
+    {
+        Console.WriteLine($"• [experimental] {generator.Next()}");
+    }
+    return 0;
 }
 
-var doc = JsonSerializer.Deserialize<PunFile>(
-    File.ReadAllText(dataPath),
-    new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new PunFile([]);
+var doc = JsonSerializer.Deserialize<PunFile>(File.ReadAllText(DataFile("puns.json")), json) ?? new PunFile([]);
 
 var pool = PunFilter.ByTopic(doc.Puns, topic);
 
@@ -28,12 +40,18 @@ if (pool.Count == 0)
     return 1;
 }
 
-var bag = new ShuffleBag<Pun>(pool, seed is null ? new Random() : new Random(seed.Value));
+var bag = new ShuffleBag<Pun>(pool, rng);
 for (var i = 0; i < count; i++)
 {
     Console.WriteLine($"• {bag.Next().Text}");
 }
 return 0;
+
+static string DataFile(string name)
+{
+    var path = Path.Combine(AppContext.BaseDirectory, name);
+    return File.Exists(path) ? path : Path.GetFullPath(Path.Combine("..", "data", name));
+}
 
 static string? ArgValue(string[] args, string name)
 {

@@ -7,5 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="../data/puns.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../data/wordplay.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
