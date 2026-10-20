@@ -1,0 +1,23 @@
+{
+  "_note": "Original starter set. Add your own; keep each one credited if it isn't yours.",
+  "puns": [
+    { "topic": "code", "text": "My code has no bugs. It has undocumented features with strong personalities." },
+    { "topic": "code", "text": "I tried to refactor my life, but the dependencies wouldn't resolve." },
+    { "topic": "code", "text": "The database and I had a falling out. There was no common key between us." },
+    { "topic": "code", "text": "I'd tell you a UDP joke, but you might not get it." },
+    { "topic": "code", "text": "My legacy app asked for therapy. It had too many unresolved issues from the past." },
+    { "topic": "data", "text": "Deduplicating customer records is rewarding. You really find out who people are." },
+    { "topic": "data", "text": "I normalized my sleep schedule. Now it's in third normal form and I'm always tired." },
+    { "topic": "data", "text": "Attribution modeling is hard. Every channel wants to take credit for my coffee." },
+    { "topic": "auth", "text": "I asked OAuth for a date. It said I needed consent first, which is fair." },
+    { "topic": "auth", "text": "My refresh token got rotated so often it started feeling dizzy." },
+    { "topic": "dogs", "text": "My dog is a great developer. Every commit is a little ruff, but she always fetches the latest changes." },
+    { "topic": "dogs", "text": "We walk the same route every day. My dog calls it a stable release." },
+    { "topic": "cycling", "text": "I cycle aimlessly to clear my head. It's very wheel-being focused." },
+    { "topic": "cycling", "text": "My bike can't stand up on its own. It's two tired." },
+    { "topic": "embroidery", "text": "Embroidery taught me patience. Every project has a lot of loose threads at first." },
+    { "topic": "embroidery", "text": "My embroidery hoop and I are close. We've been through a lot of tension together." },
+    { "topic": "reading", "text": "I'm reading a book about anti-gravity. I can't put it down." },
+    { "topic": "civic", "text": "I filed a 311 request for more puns. Status: pending, but the city says it's under review and over the moon." }
+  ]
+}

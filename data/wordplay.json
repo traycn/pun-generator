@@ -1,0 +1,26 @@
+{
+  "templates": [
+    "Why did the {subject} {action}? Because it {payoff}.",
+    "What do you call a {subject} that {action}? {payoffNoun}."
+  ],
+  "entries": [
+    {
+      "subject": "baker",
+      "action": "quit his job",
+      "payoff": "couldn't make enough dough",
+      "payoffNoun": "A loaf-and-leave situation"
+    },
+    {
+      "subject": "server",
+      "action": "go to the gym",
+      "payoff": "wanted better uptime",
+      "payoffNoun": "A load-bearing node"
+    },
+    {
+      "subject": "cyclist",
+      "action": "take a nap",
+      "payoff": "was two tired",
+      "payoffNoun": "A spoke-and-rest enthusiast"
+    }
+  ]
+}
